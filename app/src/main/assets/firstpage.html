@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function parseJSON() {
+            var url = window.location.href;
+            var arr = url.split('=');
+
+            var otest = document.getElementById("test");
+
+            var newli = document.createElement("li");
+
+            var result = JSON.parse(decodeURIComponent(arr[1]));
+            newli.innerHTML = result.UserName;
+
+            otest.insertBefore(newli, otest.childNodes[1]);
+        }
+
+        function gotoSecondActivity() {
+            var baseURL = "activity://jianqiang.com.hook3.SecondActivity";
+            var jsonValue = "{'HotelId':14, 'HotelName' = '郭郭大酒店', 'Rooms':[{'roomType':'大床房', 'price':100}, {'roomType':'双床房', 'price':200}]}";
+            var jsonType = "[{'key':'HotelId', 'value':'2'}, {'key':'HotelName', 'value':'1'}, {'key':'Rooms', 'value':'jianqiang.com.hook3.entity.Course'}]";
+            var finalJSON = "{'jsonValue'=" + jsonValue + ", 'jsonType'=" + jsonType + "}";
+
+            baseURL = baseURL + "?json=" + encodeURIComponent(finalJSON);
+
+            location.href= baseURL;
+        }
+
+        function gotoSecondActivityInWeb() {
+            var baseURL = "secondpage.html";
+            var jsonValue = "{'HotelId':14, 'HotelName' = '郭郭大酒店', 'Rooms':[{'roomType':'大床房', 'price':100}, {'roomType':'双床房', 'price':200}]}";
+            var jsonType = "[{'key':'HotelId', 'value':'2'}, {'key':'HotelName', 'value':'1'}, {'key':'Rooms', 'value':'jianqiang.com.hook3.entity.Course'}]";
+            var finalJSON = "{'jsonValue'=" + jsonValue + ", 'jsonType'=" + jsonType + "}";
+
+            baseURL = baseURL + "?json=" + encodeURIComponent(finalJSON);
+
+            location.href= baseURL;
+        }
+
+    </script>
+</head>
+<body onload="parseJSON()">
+    <ul id="test">
+        <li></li>
+    </ul>
+
+    <a href="javascript:void(0)" onclick="gotoSecondActivity()">跳转SecondActivity</a> <br/>
+    <a href="javascript:void(0)" onclick="gotoSecondActivityInWeb()">跳转SecondPage</a>
+<body>
+<html>

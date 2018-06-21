@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function backToMainActivity() {
+            var baseURL = "startActivityForResult://jianqiang.com.hook3.MainActivity";
+            var jsonValue = "{'score':14}";
+            var jsonType = "[{'key':'score', 'value':'2'}]";
+            var finalJSON = "{'jsonValue'=" + jsonValue + ", 'jsonType'=" + jsonType + "}";
+
+            baseURL = baseURL + "?json=" + encodeURIComponent(finalJSON);
+
+            location.href= baseURL;
+        }
+
+    </script>
+</head>
+<body>
+    <ul id="test">
+        <li></li>
+    </ul>
+
+    <a href="javascript:void(0)" onclick="backToMainActivity()">返回结果啊</a> <br/>
+<body>
+<html>
